@@ -18,7 +18,7 @@ public class DBService {
 	@Autowired
 	private LivroRepository livroRepository;
 
-	public void instaciaBaseDeDados() {
+	public void instanciaBaseDeDados() {
 
 		Categoria cat1 = new Categoria(null, "Informática", "Livro de TI");
 		Categoria cat2 = new Categoria(null, "Ficção Científica", "Ficção Científica");
@@ -36,4 +36,6 @@ public class DBService {
 		this.categoriaRepository.saveAll(Arrays.asList(cat1, cat2, cat3));
 		this.livroRepository.saveAll(Arrays.asList(l1, l2, l3, l4, l5));
 	}
+
+	
 }
