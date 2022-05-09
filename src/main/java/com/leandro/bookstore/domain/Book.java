@@ -1,21 +1,29 @@
 package com.leandro.bookstore.domain;
 
+import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Objects;
 
-public class Livro {
+@Entity
+public class Book implements Serializable {
+    private static final long serialVersionUID = 1l;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String title;
     private String author_name;
     private String description;
     private String text;
 
-    private Categoria category;
+    @ManyToOne
+    @JoinColumn(name = "category_id")
+    private Category category;
 
-    public Livro() {
+    public Book() {
         super();
     }
 
-    public Livro(Integer id, String title, String author_name, String description, String text, Categoria category) {
+    public Book(Integer id, String title, String author_name, String description, String text, Category category) {
         this.id = id;
         this.title = title;
         this.author_name = author_name;
@@ -64,11 +72,11 @@ public class Livro {
         this.text = text;
     }
 
-    public Categoria getCategory() {
+    public Category getCategory() {
         return category;
     }
 
-    public void setCategory(Categoria category) {
+    public void setCategory(Category category) {
         this.category = category;
     }
 
@@ -76,8 +84,8 @@ public class Livro {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Livro livro = (Livro) o;
-        return id.equals(livro.id);
+        Book book = (Book) o;
+        return id.equals(book.id);
     }
 
     @Override

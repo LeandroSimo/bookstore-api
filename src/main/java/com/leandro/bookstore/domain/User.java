@@ -1,7 +1,7 @@
 package com.leandro.bookstore.domain;
 
 
-public class Usuario {
+public class User {
     private Integer id;
     private String name;
     private String login;
