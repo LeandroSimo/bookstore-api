@@ -1,5 +1,7 @@
 package com.leandro.bookstore.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Objects;
@@ -15,6 +17,7 @@ public class Book implements Serializable {
     private String description;
     private String text;
 
+    @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "category_id")
     private Category category;
