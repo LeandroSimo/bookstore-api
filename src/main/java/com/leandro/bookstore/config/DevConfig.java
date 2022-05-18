@@ -10,7 +10,6 @@ import org.springframework.context.annotation.Profile;
 @Configuration
 @Profile("dev")
 public class DevConfig {
-
     @Autowired
     private DBService dbServiceDev;
     @Value("${spring.jpa.hibernate.ddl-auto}")
@@ -19,7 +18,7 @@ public class DevConfig {
     @Bean
     public boolean instanceDB() {
         if (strategy.equals("create")) {
-            this.dbServiceDev.instanceDB();
+            this.dbServiceDev.instanceBD();
         }
         return false;
     }
